@@ -1,0 +1,126 @@
+/*  Enlaces de Fuentes */
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kufam:wght@600;700&display=swap");
+/*  Colores   */
+:root {
+  --fondo: rgb(5, 9, 44);
+  /*  Colores  */
+  --blanco: rgba( 240, 243, 244, 1);
+  --negro: rgba(23, 32, 42, 1);
+  --celeste: rgba(93, 173, 226, 1);
+  --amarillo: rgba( 244, 208, 63, 1);
+  --naranja: rgba(255, 87, 51, 1);
+  --verde-lima: rgba(219, 255, 51, 1);
+  --verde-hoja: rgba(117, 255, 51, 1);
+  --verde: rgba(51, 255, 87, 1);
+  --verde-oscuro: rgba( 17, 122, 101, 1);
+  --turquesa: rgba(51, 255, 189, 1);
+  --rojo-naranja: rgba(192, 57, 43, 1);
+  --guindo: rgba(100, 30, 22, 1);
+  --gris: rgba(120, 144, 156, 1);
+  /*  Fuentes  */
+  --f-poppins: "Poppins", sans-serif;
+  --f-kufam: "Kufam", cursive; }
+
+* {
+  font-family: var(--f-poppins); }
+
+body {
+  background-color: var(--fondo);
+  color: var(--blanco); }
+
+.container {
+  margin: 0 auto;
+  width: 90%; }
+
+header {
+  background-color: var(--amarillo);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0px -3px 2em var(--amarillo); }
+  header h2 {
+    padding: 10px;
+    margin: 0;
+    font-size: 3rem;
+    font-weight: normal;
+    text-align: center;
+    color: var(--negro); }
+    header h2 #word-queue {
+      color: var(--verde-oscuro);
+      font-weight: bold;
+      font-style: oblique; }
+    header h2 #word-javascript {
+      color: var(--rojo-naranja);
+      font-weight: bold;
+      font-style: oblique; }
+
+.data-view {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column; }
+  .data-view hr {
+    color: var(--blanco);
+    width: calc(100% - 500px);
+    border-radius: 50%; }
+  .data-view .queue {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row; }
+    .data-view .queue .node {
+      margin: 5px;
+      padding: 10px;
+      background-color: var(--rojo-naranja);
+      border-radius: 5px; }
+      .data-view .queue .node .number {
+        font-size: 40px;
+        margin: 0; }
+
+footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%; }
+  footer .form {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 20px 0; }
+    footer .form fieldset {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 4px dashed var(--celeste);
+      -moz-border-radius: 8px;
+      -webkit-border-radius: 8px;
+      border-radius: 8px; }
+      footer .form fieldset .legend-button .button {
+        font-size: 18px;
+        font-family: var(--f-kufam);
+        background-color: var(--celeste);
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        margin: 0px 10px;
+        text-align: center; }
+      footer .form fieldset span {
+        font-weight: bold; }
+      footer .form fieldset > span {
+        font-weight: normal;
+        margin: 5px 0; }
+      footer .form fieldset input[type=number] {
+        border: none;
+        background-color: var(--fondo);
+        color: var(--blanco);
+        border-bottom: 2px solid var(--celeste);
+        padding: 2px 8px; }
+      footer .form fieldset input[type=number]::-webkit-inner-spin-button {
+        -webkit-appearance: none; }
+
+/*# sourceMappingURL=styles.css.map */
