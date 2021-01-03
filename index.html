@@ -5,14 +5,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>QUEUE</title>
 		<link rel="stylesheet" href="css/normalize.css" />
+		<link rel="stylesheet" href="vendor/css/fontawesome.css">
 		<!--link rel="stylesheet" href="css/skeleton.css"-->
 		<link rel="stylesheet" href="css/styles.css" />
-		<link rel="stylesheet" href="vendor/css/fontawesome.css">
+	
 	</head>
 	<body>
 		<header class="header">
-			<h2>
-				Implementation of <span id="word-queue">Queue</span> in
+			<h2>Visualization of <span id="word-queue">Queue</span> in
 				<span id="word-javascript">Javascript</span>
 			</h2>
 		</header>
@@ -25,11 +25,11 @@
 						<p>0</p>
 					</div>
 				</div>
-			
-				
 			</div>
 			<hr />
-
+			<p class="error">
+			
+			</p>
 		</section>
 		<footer>
 			<section class="options">
@@ -38,22 +38,21 @@
                       	  	<button class="button" id="btn-add">Add</button>
                    		</legend>
                     	<input type="number" placeholder="input" />         
-				</fieldset>
-                
-                <fieldset class="parrafo">
+				</fieldset>                
+                	<fieldset class="parrafo">
 					<legend class="legend-button">
                         <button class="button"  id="btn-pop">Pop</button>
                     </legend>
-                    <p>Al llamar a la funcion <span>pop</span>  saca el primer elemento de la cola.</p>
-                </fieldset>
-                <fieldset class="parrafo">
+               	<p>La funcion <span>pop</span>  saca el primer elemento de la cola.</p>
+                	</fieldset>
+                	<fieldset class="parrafo">
 					<legend class="legend-button">
-                        <button class="button" id="btn-peek">Vuelta</button>
-                    </legend>
-                    <p>Al llamar a la funcion <span>Vuelta</span> saca el primer elemento y da un giro y ingresa de nuevo a la cola</p>
-				</fieldset>
+                        		<button class="button" id="btn-peek">Vuelta</button>
+                    	</legend>
+                    	<p>La funcion <span>Vuelta</span> saca el primer elemento y ingresa de nuevo en la cola</p>
+					</fieldset>
 			</section>
 		</footer>
-		<script src="js/app.js"></script>
+		<script src="js/Queue.js"></script>
 	</body>
 </html>

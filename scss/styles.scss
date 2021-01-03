@@ -80,8 +80,6 @@ header{
           flex-wrap: wrap;
           justify-content: center;
           flex-direction: row;
-          transition: all 2s ease-in-out;
-    
           .node{
                /*
                     Node
@@ -92,8 +90,6 @@ header{
                background-color: var(--rojo-naranja);
                border-radius: 5px;
                overflow: hidden;
-               animation:addNode 1s normal ;
-             
                .number{
                     text-align: center;
                     font-size: 40px;
@@ -128,6 +124,15 @@ header{
                100%{
                     transform: scale(1);
                }
+          }
+     }
+     .error{
+          display: none;
+          color: #ff1616;
+          font-weight: bold;
+          font-family: var(--f-kufam);
+          i{
+               color: var(--amarillo);
           }
      }
 }
@@ -180,10 +185,7 @@ footer{
                }
                input[type=number]::-webkit-inner-spin-button {
                     -webkit-appearance: none;
-               }
-               
-            
-              
+               }  
           }
      }
 }

@@ -99,6 +99,3 @@ document.getElementById('btn-peek').addEventListener('click', async function() {
      
     
 });
-
-console.log(document.getElementById('queue').children[0].scrollWidth)
-
