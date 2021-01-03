@@ -8,7 +8,9 @@ function createNodeNumber(){
      elementNumber = document.createElement('p');
      elementNode.className =  'node';
      elementNumber.className = 'number';
-
+     if(document.getElementById('queue').childElementCount === 0){
+          document.getElementById('print-error').style.display = 'none';
+     }
      elementNode.appendChild(elementNumber);
      elementNumber.textContent = 1;
      return elementNode;
@@ -43,7 +45,6 @@ function getUserInput(parentNode){
 function enqueue( number){
      let elementNode = createNodeNumber();
      elementNode.querySelector('.number').textContent = number;
-     document.querySelector('.data-view').lastChild.style.display = 'none';
      document.getElementById('queue').appendChild(elementNode)
 }
 function dequeue(i){
@@ -59,8 +60,9 @@ function printError(error){
           let viewError = document.createElement('div');
           viewError.innerHTML = "<i class='fas fa-exclamation-circle'></i>" +
           `Queue is ${error}`;
-          viewError.style.display = 'block'
+          viewError.style.display = 'block';
           viewError.style.color = '#F00' 
+          viewError.id = 'print-error'
           document.querySelector('.data-view').insertAdjacentElement('beforeend', viewError)
      }
      sw = false;
@@ -81,18 +83,21 @@ document.getElementById('btn-pop').addEventListener('click', function() {
           : printError('empty')
 });
 
-document.getElementById('btn-peek').addEventListener('click', async function() {
-     let size = document.getElementById('queue').childElementCount;
-     size > 0
-          ? ()=>{
-               let firstNode = document.getElementById('queue').children[0];
+function girar(){
+     let firstNode = document.getElementById('queue').children[0];
      deleteNode(firstNode);
-     console.log(firstNode.children[0].textContent)
      setTimeout(()=>{
           enqueue(firstNode.children[0].textContent)
      }, 2000)
-          }
+}
+
+document.getElementById('btn-peek').addEventListener('click', async function() {
+     let size = document.getElementById('queue').childElementCount;
+     size > 0
+          ? girar()
           : printError('empty')
+     
+    
 });
 
 console.log(document.getElementById('queue').children[0].scrollWidth)
