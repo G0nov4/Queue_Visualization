@@ -1,70 +1,99 @@
-class Queue
-{
-     constructor(){
-          this.items  = [];
-     }
-     //   Agregamos un elemento al final de una cola
-     enqueue(element){
-          this.items.push(element);
-     }
-
-     //   Eliminamos un elemento al principio de la cola
-     dequeue(){
-          if(this.isEmpty())
-               return 'Underflow';
-          return this.items.shift();
-     }
-
-     //   Devolvemos el elemento frontal de la cola ; Un elemento 0 de la matriz
-     front(){
-          if(this.isEmpty())
-               return "No elemetns in queue";
-          return this.items[0]
-     }
-     /*
-          Métodos auxiliares
-     */
-
-     //   Verificamos si la cola esta vacia
-    isEmpty()
-    {
-         return this.items.length == 0;
-    }
-
-    //    Imprime todos los elementos de la cola
-    printQueue()
-    {
-         var str = "";
-          for (let i = 0; i < this.items.length; i++)
-               str += this.items[i] + ' '; 
-          return str
-    }
-}
-function getUserInput(parentNode) {
-     let inputs = parentNode.getElementsByTagName('input');
-     console.log(inputs)
- }
+var status = true;
+let listNodes = document.getElementById('queue').children;
+console.log(listNodes);
 //   Funciones
-
-function enqueue( number){
-     let elementNode = document.createElement('div')
-     let elementNumber = document.createElement('p')
+//   Crea un elemento Nodo el cual continene un numero dentro de el
+function createNodeNumber(){
+     let elementNode = document.createElement('div'),
+     elementNumber = document.createElement('p');
      elementNode.className =  'node';
      elementNumber.className = 'number';
-     elementNode.appendChild(elementNumber);
-     elementNumber.textContent = number;
-     document.getElementById('queue').appendChild(elementNode);
-}
-//   Creamos un nodo
 
-console.log(document.getElementById('add-btn').parentNode.parentNode.getElementsByTagName('input')[0]);
-document.getElementById('add-btn').addEventListener('click', ()=>{
-     let input = document.getElementById('add-btn').parentNode.parentNode.getElementsByTagName('input')[0].value;
-     enqueue(Cola, input);
-})
-enqueue(98);
-enqueue(3);
-enqueue(8);
-enqueue(0);
-enqueue(08);
-enqueue(90423423434222222222222222222222222222222222222222222);
+     elementNode.appendChild(elementNumber);
+     elementNumber.textContent = 1;
+     return elementNode;
+}
+
+function deleteNode(node){
+     return new Promise(resolve =>{
+          listNodes[0].style.animation = 'deleteNode 2s ease';
+          setTimeout(()=>{
+               document.getElementById('queue').removeChild(node);
+          }, 2000);
+     })
+}
+function deleteNodePeek(node){
+     return new Promise(resolve =>{
+          listNodes[0].style.animation = 'deleteNode 2s ease';
+          setTimeout(()=>{
+               return document.getElementById('queue').removeChild(node);
+          }, 2000);
+     })
+}
+
+
+//   Obtiene la entrada del input
+function getUserInput(parentNode){
+     let inputs = parentNode.getElementsByTagName('input');
+     let input = inputs[0].value
+     return input
+}
+
+//   Mete a la cola el numero
+function enqueue( number){
+     let elementNode = createNodeNumber();
+     elementNode.querySelector('.number').textContent = number;
+     document.querySelector('.data-view').lastChild.style.display = 'none';
+     document.getElementById('queue').appendChild(elementNode)
+}
+function dequeue(i){
+     sw =  true;
+     let firstNode = document.getElementById('queue').children[i];
+     deleteNode(firstNode);
+    
+}
+
+function printError(error){
+     
+     if (sw == true){
+          let viewError = document.createElement('div');
+          viewError.innerHTML = "<i class='fas fa-exclamation-circle'></i>" +
+          `Queue is ${error}`;
+          viewError.style.display = 'block'
+          viewError.style.color = '#F00' 
+          document.querySelector('.data-view').insertAdjacentElement('beforeend', viewError)
+     }
+     sw = false;
+     
+}
+
+//   Evento que genera un elemento con la entrada del input del mismo
+document.getElementById('btn-add').addEventListener('click', function() {
+     let userInput = getUserInput(this.parentNode.parentNode);
+     !(userInput === '' || userInput === null || userInput === undefined)
+          ? enqueue(userInput)
+          :  console.log('Error')
+});
+document.getElementById('btn-pop').addEventListener('click', function() {
+     let size = document.getElementById('queue').childElementCount;
+     size > 0
+          ? dequeue(0)
+          : printError('empty')
+});
+
+document.getElementById('btn-peek').addEventListener('click', async function() {
+     let size = document.getElementById('queue').childElementCount;
+     size > 0
+          ? ()=>{
+               let firstNode = document.getElementById('queue').children[0];
+     deleteNode(firstNode);
+     console.log(firstNode.children[0].textContent)
+     setTimeout(()=>{
+          enqueue(firstNode.children[0].textContent)
+     }, 2000)
+          }
+          : printError('empty')
+});
+
+console.log(document.getElementById('queue').children[0].scrollWidth)
+

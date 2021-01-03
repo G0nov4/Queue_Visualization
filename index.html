@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="css/normalize.css" />
 		<!--link rel="stylesheet" href="css/skeleton.css"-->
 		<link rel="stylesheet" href="css/styles.css" />
+		<link rel="stylesheet" href="vendor/css/fontawesome.css">
 	</head>
 	<body>
 		<header class="header">
@@ -20,46 +21,37 @@
 			<div class="queue" id="queue">
 				<div class="node">
 					<p class="number">1</p>
+					<div class="position">
+						<p>0</p>
+					</div>
 				</div>
+			
 				
 			</div>
 			<hr />
 		</section>
 		<footer>
-			<form class="form">
+			<section class="options">
 				<fieldset>
 					<legend class="legend-button">
-                        <button class="button" id="add-btn">Add</button>
-                    </legend>
-                    <span>Input:</span>
-
-                    <input type="number" placeholder="input" />
-         
+                      	  	<button class="button" id="btn-add">Add</button>
+                   		</legend>
+                    	<input type="number" placeholder="input" />         
 				</fieldset>
-             
-                <fieldset>
+                
+                <fieldset class="parrafo">
 					<legend class="legend-button">
-                        <button class="button" >Remove</button>
+                        <button class="button"  id="btn-pop">Pop</button>
                     </legend>
-                    <span>Input:</span>
-		
-                    <input type="number"  placeholder="input"/>
-                    <span>Data:</span>
-                    <input type="number"  placeholder="data"/>
-				</fieldset>
-                <fieldset>
-					<legend class="legend-button">
-                        <button class="button" >Pop</button>
-                    </legend>
-                    <p>Al llamar a la funcion <span>pop</span> este saca el primer elemento de la cola.</p>
+                    <p>Al llamar a la funcion <span>pop</span>  saca el primer elemento de la cola.</p>
                 </fieldset>
-                <fieldset>
+                <fieldset class="parrafo">
 					<legend class="legend-button">
-                        <button class="button" >Peek</button>
+                        <button class="button" id="btn-peek">Vuelta</button>
                     </legend>
-                    <p>Al llamar a la funcion <span>peek</span> este saca el primer elemento de la cola.</p>
+                    <p>Al llamar a la funcion <span>Vuelta</span> saca el primer elemento y da un giro y ingresa de nuevo a la cola</p>
 				</fieldset>
-			</form>
+			</section>
 		</footer>
 		<script src="js/app.js"></script>
 	</body>
