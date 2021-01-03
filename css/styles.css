@@ -71,28 +71,56 @@ header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    flex-direction: row; }
+    flex-direction: row;
+    transition: all 2s ease-in-out; }
     .data-view .queue .node {
+      /*
+           Node
+      */
+      display: flex;
+      flex-direction: column;
       margin: 5px;
-      padding: 10px;
       background-color: var(--rojo-naranja);
-      border-radius: 5px; }
+      border-radius: 5px;
+      overflow: hidden;
+      animation: addNode 1s normal; }
       .data-view .queue .node .number {
+        text-align: center;
         font-size: 40px;
+        padding: 10px;
         margin: 0; }
-
+      .data-view .queue .node .position {
+        display: none;
+        width: 100%;
+        margin: 0;
+        background-color: var(--verde-oscuro); }
+        .data-view .queue .node .position > p {
+          padding: 0px 10px 0px 10px;
+          margin: 0;
+          text-align: center; }
+@keyframes deleteNode {
+  50% {
+    transform: scale(1.2); }
+  100% {
+    transform: scale(0); } }
+@keyframes addNode {
+  0% {
+    transform: scale(0); }
+  100% {
+    transform: scale(1); } }
 footer {
   position: absolute;
   bottom: 0px;
   width: 100%; }
-  footer .form {
+  footer .options {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    width: 100%;
     padding: 20px 0; }
-    footer .form fieldset {
+    footer .options .parrafo {
+      width: 20%; }
+    footer .options fieldset {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -100,7 +128,7 @@ footer {
       -moz-border-radius: 8px;
       -webkit-border-radius: 8px;
       border-radius: 8px; }
-      footer .form fieldset .legend-button .button {
+      footer .options fieldset .legend-button .button {
         font-size: 18px;
         font-family: var(--f-kufam);
         background-color: var(--celeste);
@@ -109,18 +137,18 @@ footer {
         border: none;
         margin: 0px 10px;
         text-align: center; }
-      footer .form fieldset span {
+      footer .options fieldset span {
         font-weight: bold; }
-      footer .form fieldset > span {
+      footer .options fieldset > span {
         font-weight: normal;
         margin: 5px 0; }
-      footer .form fieldset input[type=number] {
+      footer .options fieldset input[type=number] {
         border: none;
         background-color: var(--fondo);
         color: var(--blanco);
         border-bottom: 2px solid var(--celeste);
         padding: 2px 8px; }
-      footer .form fieldset input[type=number]::-webkit-inner-spin-button {
+      footer .options fieldset input[type=number]::-webkit-inner-spin-button {
         -webkit-appearance: none; }
 
 /*# sourceMappingURL=styles.css.map */
