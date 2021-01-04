@@ -2,7 +2,7 @@ const queue = document.getElementById('queue');
 const btn_add =document.getElementById('btn-add');
 const btn_pop =document.getElementById('btn-pop');
 const btn_peek =document.getElementById('btn-peek');
-let msgError = queue.parentNode.getElementsByClassName('error')[0];
+let msgError = queue.parentNode.parentNode.getElementsByClassName('error')[0];
 const nodes = queue.children;       //   HTML collection
 var p = queue.childElementCount;
 
@@ -48,14 +48,13 @@ function deleteNode(node){
 }
 
 
-function showError(){
+function showError(error){
      if(msgError.style.display === '' || msgError.style.display === 'none'){
           if(isEmpty){
-               msgError.innerHTML = `<i class='fas fa-exclamation-circle'></i> Queue Empty`;
+               msgError.innerHTML = `<i class='fas fa-exclamation-circle'></i> ${error}`;
                msgError.style.display = 'block'
           }
      }
-   
 }
 function getUserInput(parent){
      return parent.querySelector('input').value;
@@ -64,26 +63,42 @@ function getUserInput(parent){
 function isEmpty(){
      return (queue.childElementCount == 0);
 }
+function verificateInput(input){
+     console.log(input);
+     if(input== ''){
 
+     }
+}
 function add(){
      let node, parent, input;
+     clearMsgError();
+     parent = this.parentNode.parentNode;
+     input = getUserInput(parent);
+     console.log(typeof input)
+     if(input !== ''){;
+          node = createNode(input);
+          queue.appendChild(node);
+     }else{
+          showError('Invalid Data');
+     }
+   
+}
+
+function clearMsgError(){
      msgError.textContent = '';
      msgError.style.display = 'none';
-     parent = this.parentNode.parentNode;
-     input = getUserInput(parent)
-     node = createNode(input);
-     queue.appendChild(node);
 }
 
 async function pop(){
-          !isEmpty()
-          ? await deleteNode(nodes[0])
-          : showError();
+     clearMsgError();
+     !isEmpty()
+     ? await deleteNode(nodes[0])
+     : showError('Queue is empty');
 }
 
 async function peek(){
      let node = nodes[0];
-
+     clearMsgError();
      if(!isEmpty()){
           let num = node.getElementsByClassName('number')[0].textContent;
           deleteNode(node);
@@ -92,7 +107,7 @@ async function peek(){
                queue.appendChild(node);
           }, timeEfect);
      }else
-          showError();
+          showError('There are no items');
 }
 
 //   Events
