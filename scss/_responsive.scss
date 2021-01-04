@@ -1,0 +1,22 @@
+
+$computadora:992px;
+$tablet:768px;
+$telefono:480px;
+
+@mixin computadora() {
+     @media(max-width: #{$computadora}) {
+         @content;
+     }
+ }
+ 
+ @mixin tablet() {
+     @media(max-width: #{$tablet}) {
+         @content;
+     }
+ }
+ 
+ @mixin celular() {
+     @media(max-width: #{$telefono}) {
+         @content;
+     }
+ }
